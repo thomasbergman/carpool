@@ -9,13 +9,20 @@ describe "Static pages" do
       expect(page).to have_content('Carpool')
     end
 
-    it "should have the right title" do
+    it "should have the base title" do
   		visit '/static_pages/home'
-  		expect(page).to have_title("Carpool | Home")
+  		expect(page).to have_title("Carpool")
+		end
+
+    it "should have a custom page title" do
+  		visit '/static_pages/home'
+  		expect(page).to have_title("| Home")
 		end
   end
 
+
   describe "Help page" do
+
   	it "should have the content 'Help'" do
   		visit '/static_pages/help'
   		expect(page).to have_content('Help')
@@ -27,7 +34,9 @@ describe "Static pages" do
 		end
   end
 
+
   describe "About page" do
+
   	it "should have the content 'About'" do
   		visit '/static_pages/about'
   		expect(page).to have_content('About')
