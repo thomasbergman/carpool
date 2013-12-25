@@ -1,11 +1,15 @@
 Carpool::Application.routes.draw do
-  get "static_pages/home", as: "home"
-  get "static_pages/help", as: "help"
-  get "static_pages/about", as: "about"
+  
+  root 'static_pages#home'
+  
+  match '/signup', 	to: 'users#new', via: 'get'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/home', 		to: 'static_pages#home', 		via: 'get'
+
   get "log_in" => "sessions#new", as: "log_in"
   get "log_out" => "sessions#destroy", as: "log_out"
-  get "sign_up" => "users#new", as: "sign_up"
-  root 'users#new'
+  
   resources :users
   resources :sessions
 end

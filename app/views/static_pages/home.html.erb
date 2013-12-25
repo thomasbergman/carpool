@@ -1,3 +1,11 @@
 <% provide(:title, 'Home') %>
-<h1>Welcome to Carpool</h1>
-<p>Here are your cars.</p>
+<div class="center hero-suit">
+	<h1>Welcome to Carpool</h1>
+	<p>
+	<% if current_user %>
+		You are logged in.
+	</p>
+	<% else %>
+		<%= link_to "Sign up now!", sign_up_path, class: "btn btn-large, btn-primary" %>
+	<% end %>
+</div>

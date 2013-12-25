@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
+<<<<<<< HEAD
 
+=======
+>>>>>>> filling-in-layout
 ruby '2.0.0'
 gem 'rails', '4.0.1'
+gem 'bootstrap-sass', '~> 3.0.3.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
