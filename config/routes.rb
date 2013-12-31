@@ -7,9 +7,6 @@ Carpool::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/home', 		to: 'static_pages#home', 		via: 'get'
 
-  get "log_in" => "sessions#new", as: "log_in"
-  get "log_out" => "sessions#destroy", as: "log_out"
-  
   resources :users
-  resources :sessions
+  
 end
