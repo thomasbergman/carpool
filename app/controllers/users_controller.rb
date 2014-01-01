@@ -4,18 +4,23 @@ class UsersController < ApplicationController
   	@user = User.new
   end
 
-  def create
-  	@user = User.new(params[:user])
-  	if @user.save
-  		redirect_to root_url, :notice => "Signed up!"
+ def create
+  @user = User.new(user_params)
+    if @user.save
+  		flash[:success] = "Welcome, dive into the Carpool!"
+      redirect_to @user
   	else
   		render "new"
   	end
+ end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
 
-  #def user_params
-   # params.require(:user).permit(:email, :first_name, :last_name)
-  #end
+  def user_params
+   params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+  end
 end
